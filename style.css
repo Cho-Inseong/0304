@@ -2,38 +2,17 @@
     margin: 0;
     padding: 0;
 }
-/* 그리드 */
-body {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 90px 1fr 90px;
-    grid-template-areas:
-    'header'
-    'main'
-    'footer';
-}
-
-header {
-    grid-area: header;
-}
-
-main {
-    grid-area: main;
-}
-
-footer {
-    grid-area: footer;
-}
-/* 그리드 */
 
 /* 헤더 영역 */
 header {
+    background-color: white;
     height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    padding-left: 25px;
+    padding-right: 11px;
 }
 
 ul {
@@ -51,7 +30,7 @@ li {
 }
 
 .nav_ul {
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .login_ul {
@@ -68,6 +47,7 @@ a:hover {
     color: black;
 }
 /* 헤더 영역 */
+
 /* 푸터 영역 */
 footer {
     display: flex;
