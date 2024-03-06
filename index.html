@@ -8,32 +8,81 @@
 </head>
 <body>
     <header>
-        <div>
+        <divs>
             <div class="headerdis">
                 <h1>로고자리</h1>
                 <ul class="nav_ul">
-                    <li><a href="#">information</a></li>
-                    <li><a href="#">statistics</a></li>
-                    <li><a href="#">reservation</a></li>
-                    <li><a href="#">goods</a></li>
+                    <li class="headerli"><a href="#">information</a></li>
+                    <li class="headerli"><a href="#">statistics</a></li>
+                    <li class="headerli"><a href="#">reservation</a></li>
+                    <li class="headerli"><a href="#">goods</a></li>
                 </ul>
                 <ul class="login_ul">
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li class="headerli"><a href="#">로그인</a></li>
+                    <li class="headerli"><a href="#">회원가입</a></li>
                 </ul>
             </div>
         </div>
     </header>
-    <main>
+    <main id="container">
+      <!-- 슬라이드 -->
+      <div class="slidebox">
+        <input type="radio" name="slide" id="slide01" checked />
+        <input type="radio" name="slide" id="slide02"/>
+        <input type="radio" name="slide" id="slide03" />
+        <input type="radio" name="slide" id="slide04" />
+        <ul class="slidelist">
+          <li class="slideitem">
+            <div>
+              <a><img src="./IMG/slide1.png" /></a>
+            </div>
+          </li>
+          <li class="slideitem">
+            <div>
+              <a><img src="./IMG/slide2.png" /></a>
+            </div>
+          </li>
+          <li class="slideitem">
+            <div>
+              <a><img src="./IMG/slide3.png" /></a>
+            </div>
+          </li>
+          <li class="slideitem">
+            <div>
+              <a><img src="./IMG/slide4.png" /></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- 슬라이드 -->
+      <!-- 인포메이션 영역 -->
+      <div class="informationh1">
+        <h1>★Skills baseball park★</h1>
+      </div>
+      <div class="informationimgspan">
+        <img src="./IMG/42.jpg" alt="" class="informationimg">
+        <p>
+          Skills baseball spanark는 시민들의 복리증진을 위하여 설치되었으며,<br>
+          시민들의 건강 및 복지향상과 시민들에게 편리한 시설물 이용을 위한 야구장입니다<br>
+          <br>
+          야구를 사랑하며 즐기는 생활체육인들이 모이는 곳<br>
+          다양한 즐거움과 감동을 선사하는 곳<br>
+          <br>
+          Skills baseball park<br>
+          <br>
+          <a href="#">information 바로가기</a>
+        </p>
+      </div>
+      <!-- 인포메이션 영역 -->
     </main>
     <footer>
-        <span>
-            [Copyright]<br>
-            Copyrightⓒ Skills baseball park. All rights reserved.<br>
-            Call: 142-3677<br>
-            Email: help@skillsbaseballpark.com<br>
-            Address: (12345) 서울특별서 중구 중북로 71<br>
-        </span>
+      <span>
+        [Copyright]<br>
+        Copyrightⓒ Skills baseball park. All rights reserved.<br>
+        Call: 142-3677<br>
+        Email: help@skillsbaseballpark.com<br>
+        Address: (12345) 서울특별서 중구 중북로 71<br>
+      </span>
     </footer>
-</body>
+  </body>
 </html>
