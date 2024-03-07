@@ -8,9 +8,9 @@
 </head>
 <body>
     <header>
-        <divs>
+        <div>
             <div class="headerdis">
-                <h1>로고자리</h1>
+                <img src="./logo.png" alt="" class="logo">
                 <ul class="nav_ul">
                     <li class="headerli"><a href="#">information</a></li>
                     <li class="headerli"><a href="#">statistics</a></li>
@@ -25,7 +25,7 @@
         </div>
     </header>
     <main id="container">
-      <!-- 슬라이드 -->
+      <!-- 슬라이드 시작 -->
       <div class="slidebox">
         <input type="radio" name="slide" id="slide01" checked />
         <input type="radio" name="slide" id="slide02"/>
@@ -54,8 +54,8 @@
           </li>
         </ul>
       </div>
-      <!-- 슬라이드 -->
-      <!-- 인포메이션 영역 -->
+      <!-- 슬라이드 끝 -->
+      <!-- 인포메이션 영역 시작 -->
       <div class="informationh1">
         <h1>★Skills baseball park★</h1>
       </div>
@@ -73,9 +73,112 @@
           <a href="#">information 바로가기</a>
         </p>
       </div>
-      <!-- 인포메이션 영역 -->
+      <!-- 인포메이션 영역 끝 -->
+
+      <!-- 금일 게임 현황 시작 -->
+      <div class="rmadlfh1">
+        <h1>★금일 게임 현황★</h1>
+      </div>
+      <div class="rmadlfday">
+        <h1>4.1.(월)</h1>
+      </div>
+      
+      <div class="today_game">
+        <img src="./teamweb.png" alt="" class="teamweb">
+        <span class="span5">5</span>
+        <span>:</span>
+        <span class="span4">4</span>
+        <img src="./teamdesign.png" alt="" class="teamweb2">
+      </div>
+      <!-- 금일 게임 현황 끝 -->
+
+      <!-- 게임 스케쥴 영역 시작 -->
+      <div class="informationh1">
+        <h1>★Game Schedule★</h1>
+      </div>
+      <Table class="game_table">
+        <tr id="game_table_tr">
+          <th colspan="7">
+            2024년 4월
+          </th>
+        </tr>
+        <tr id="game_table_tr">
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <span id="today">Today</span>
+            1
+          </td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td class="have_game"><a href="#modal">20</a></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </Table>
+      <!-- 게임 스케쥴 영역 끝 -->
+      <!-- 모달 시작 -->
+      <div id="modal">
+        <div id="modal_container">
+          <div id="modal_header">
+            <h1>4월 20일</h1>
+          </div>
+          <hr>
+          <div id="modal_body">
+            <p>아직 게임이 없습니다.</p>
+          </div>
+          <a href="#game_schedule_table"><button id="modal_close">닫기</button></a>
+        </div>
+      </div>
+      <!-- 모달 끝 -->
     </main>
     <footer>
+      <img src="./logo.png" alt="" class="logo" id="logo">
       <span>
         [Copyright]<br>
         Copyrightⓒ Skills baseball park. All rights reserved.<br>
