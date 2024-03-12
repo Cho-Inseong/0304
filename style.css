@@ -14,7 +14,9 @@ header {
     position: fixed;
     z-index: 1;
 }
-
+body{
+    height: 1000px;
+}
 .logo {
     width: 150px;
     height: 50px;
@@ -51,6 +53,7 @@ a:hover {
     font-weight: 900;
     color: black;
 }
+
 /* 헤더 영역 끝 */
 
 
@@ -122,6 +125,7 @@ a:hover {
         transform: translateX(-300%);
     }
 }
+
 /* 슬라이드 끝*/
 
 /* 인포메이션 영역 시작*/
@@ -154,7 +158,7 @@ a:hover {
 
 /* 금일 게임 현황 시작 */
 
-.rmadlfh1{
+.rmadlfh1 {
     display: flex;
     justify-content: center;
     padding-top: 20px;
@@ -162,7 +166,7 @@ a:hover {
 
 }
 
-.rmadlfday{
+.rmadlfday {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -200,17 +204,19 @@ a:hover {
     color: orange;
 }
 
-.teamweb{
+.teamweb {
     width: 100px;
     height: 100px;
     padding-left: 150px;
-    
+
 }
-.teamweb2{
+
+.teamweb2 {
     width: 150px;
     height: 100px;
     padding-right: 150px;
 }
+
 /* 금일 게임 현황 끝 */
 
 /* 게임 스케쥴 영역 시작 */
@@ -220,13 +226,16 @@ a:hover {
     width: 100%;
 }
 
-.game_table tr, .game_table td, .game_table th {
+.game_table tr,
+.game_table td,
+.game_table th {
     border: 1px solid black;
     font-size: 24px;
     padding: 20px;
 }
 
-.game_table tr, .game_table td {
+.game_table tr,
+.game_table td {
     padding-top: 80px;
     text-align: end;
 }
@@ -238,11 +247,263 @@ a:hover {
 #today {
     color: red;
 }
+
 /* 게임 스케쥴 영역 끝 */
 
+/* 랭킹 영역 시작 */
+.menu {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.menu:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.menu>li {
+    float: left;
+    margin-right: 5px;
+}
+
+.menu>li>a {
+    display: block;
+    padding: 0 15px;
+    background: #333;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.menu>li:hover .depth_1 {
+    display: block;
+}
+
+.menu .depth_1 {
+    display: none;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.menu .depth_1 a {
+    display: block;
+    padding: 5px;
+    background: #666;
+    color: #fff;
+}
+
+.rankall {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nightpitcher,
+.nighthitter,
+.weekendpitcher,
+.weekendhitter,
+.dawnpitcher,
+.dawnhitter {
+    text-align: center;
+}
+
+#nightpitcher,
+#nighthitter,
+#weekendpitcher,
+#weekendhitter,
+#dawnpitcher,
+#dawnhitter {
+    display: none;
+}
+
+#nightpitcher:target,
+#nighthitter:target,
+#weekendpitcher:target,
+#weekendhitter:target,
+#dawnpitcher:target,
+#dawnhitter:target {
+    display: block;
+}
+
+/* 악코디언 시작 */
+.rankmenu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.rankmenu:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.rankmenu>li {
+    float: left;
+    margin-right: 5px;
+}
+
+.rankmenu>li>a {
+    text-align: center;
+    display: block;
+    padding: 0 15px;
+    background: #333;
+    height: 40px;
+    width: 1000px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.rankmenu>li:hover .depth_1 {
+    display: block;
+}
+
+.rankmenu .depth_1 {
+    display: none;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.rankmenu .depth_1 a {
+    display: block;
+    padding: 5px;
+    background: #666;
+    color: #fff;
+}
+
+/* 악코디언 끝 */
+/* 랭킹 영역 끝 */
+
+/* 갤러리 영역 시작 */
+#gallery {
+    margin-top: 100px;
+    text-align: center;
+}
+
+#gallery>div {
+    display: none;
+}
+
+#gallery>div:first-of-type {
+    display: flex;
+}
+
+#gallery>div:target {
+    display: flex;
+}
+
+#gallery:has(:target:not(:is(#gallery1)))>#gallery1 {
+    display: none;
+}
+
+#gallery div div {
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#gallery div div p {
+    visibility: hidden;
+}
+
+#gallery div div:hover p {
+    visibility: visible;
+}
+
+#gallery div div:nth-of-type(1) {
+    width: 290px;
+    height: 200px;
+}
+
+#gallery div div:nth-of-type(2) {
+    width: 600px;
+    height: 350px;
+}
+
+#gallery div div:nth-of-type(3) {
+    width: 290px;
+    height: 200px;
+}
+
+.imgWhite {
+    background-color: white;
+}
+
+.img1 {
+    background-image: url("./IMG/14.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img2 {
+    background-image: url("./IMG/19.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img3 {
+    background-image: url("./IMG/30.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img4 {
+    background-image: url("./IMG/41.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img5 {
+    background-image: url("./IMG/44.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img6 {
+    background-image: url("./IMG/51.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* goods 영역 */
+#container #goods {
+    margin-top: 60px;
+    text-align: center;
+    height: 300px;
+}
+
+#container #goods #images {
+    display: flex;
+    justify-content: center;
+}
+
+#container #goods #images .image img {
+    width: 100px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+#container #goods #images .image img:hover {
+    width: 200px;
+}
+
+/* information 페이지 */
+#sub01_container {
+    width: 1320px;
+    margin: 0 auto;
+}
+
+/* 갤러리 영역 끝 */
+
 /* 모달 영역 시작 */
-#modal
-{
+#modal {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -280,11 +541,12 @@ a:hover {
     margin-top: 20px;
     font-size: 24px;
 }
-
+style.css
 #modal:target {
     visibility: visible;
     opacity: 1;
 }
+
 /* 모달 영역 끝 */
 /* 콘테이너 끝 */
 
@@ -295,6 +557,8 @@ footer {
     background-color: aqua;
     justify-content: center;
     height: 100px;
+    position: relative;
+    top: 100%;
 }
 
 footer span {
@@ -306,4 +570,5 @@ footer span {
 #logo {
     padding-top: 25px;
 }
+
 /* 푸터 영역 끝 */
