@@ -14,9 +14,7 @@ header {
     position: fixed;
     z-index: 1;
 }
-body{
-    height: 1000px;
-}
+
 .logo {
     width: 150px;
     height: 50px;
