@@ -8,23 +8,7 @@
     <link rel="stylesheet" href="./[2024 지방기능경기대회] 웹 디자인 및 개발 선수제공파일/bootstrap-5.2.0-dist/css/bootstrap.css">
 </head>
 <body>
-    <header>
-        <div>
-          <div class="headerdis">
-            <img src="./logo.png" alt="" class="logo">
-            <ul class="nav_ul">
-              <li class="headerli"><a href="#">information</a></li>
-              <li class="headerli"><a href="./sub02.html">statistics</a></li>
-              <li class="headerli"><a href="#">reservation</a></li>
-              <li class="headerli"><a href="#">goods</a></li>
-            </ul>
-            <ul class="login_ul">
-              <li class="headerli"><a href="#">로그인</a></li>
-              <li class="headerli"><a href="#">회원가입</a></li>
-            </ul>
-          </div>
-        </div>
-    </header>
+<?php include("./component/header.php")?>
     <main id="container">
       <div class="container mt-5" id="tlqkffusdl">
         <div id="controls" class="mb-3">
@@ -62,16 +46,7 @@
       </div>
 
     </main>
-    <!-- <footer>
-        <img src="./logo.png" alt="" class="logo" id="logo">
-        <span>
-          [Copyright]<br>
-          Copyrightⓒ Skills baseball park. All rights reserved.<br>
-          Call: 142-3677<br>
-          Email: help@skillsbaseballpark.com<br>
-          Address: (12345) 서울특별서 중구 중북로 71<br>
-        </span>
-    </footer>  -->
+    <?php include("./component/footer.php")?>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
