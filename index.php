@@ -11,7 +11,7 @@ switch ($resource[1]) {
         $pages = './pages/index.php';
         break;
     case 'information':
-        $pages = './pasges/sub01.php';
+        $pages = './pages/sub01.php';
         break;
     case 'statistics':
         $pages = './pages/sub02.php';
@@ -21,6 +21,9 @@ switch ($resource[1]) {
         break;
     case 'goods':
         $pages = './pages/sub04.php';
+        break;
+    case 'login':
+        $pages = './pages/login.php';
         break;
     default:
         echo "어딜 들어와 시발롬아 뒤질라고";

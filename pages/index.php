@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>baseball</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./[2024 지방기능경기대회] 웹 디자인 및 개발 선수제공파일/bootstrap-5.2.0-dist/css/bootstrap.css">
 </head>
 
 <body>
@@ -416,14 +415,25 @@
       </div>
     </div>
     <!-- 모달 끝 -->
+
+    <!-- 로그인 시작 -->
+    <div id="login">
+      <div id="login_container">
+        <div id="login_header">
+          <h1>4월 20일</h1>
+        </div>
+        <hr>
+        <div id="login_body">
+          <p>아직 게임이 없습니다.</p>
+        </div>
+        <a href="#game_schedule_table"><button id="login_close">닫기</button></a>
+      </div>
+    </div>
+    <!-- 로그인 끝 -->
   </main>
   <!-- 푸터 시작 -->
   <?php include("./component/footer.php")?>
   <!-- 푸터 끝 -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-  <script src="./[2024 지방기능경기대회] 웹 디자인 및 개발 선수제공파일/bootstrap-5.2.0-dist/js/bootstrap.js"></script>
-  <script src="./script.js"></script>
 </body>
 
 
