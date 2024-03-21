@@ -22,8 +22,8 @@ switch ($resource[1]) {
     case 'goods':
         $pages = './pages/sub04.php';
         break;
-    case 'login':
-        $pages = './pages/login.php';
+    case 'sign_up':
+        $pages = './pages/sign_up.php';
         break;
     default:
         echo "어딜 들어와 시발롬아 뒤질라고";
