@@ -420,13 +420,13 @@
     <div id="login">
       <div id="login_container">
         <div id="login_header">
-          <h1>4월 20일</h1>
+          <h1>login</h1>
         </div>
         <hr>
         <div id="login_body">
-          <p>아직 게임이 없습니다.</p>
+          아이디<input type="text">
         </div>
-        <a href="#game_schedule_table"><button id="login_close">닫기</button></a>
+        <a href="#"><button id="login_close">닫기</button></a>
       </div>
     </div>
     <!-- 로그인 끝 -->
