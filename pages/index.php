@@ -415,21 +415,6 @@
       </div>
     </div>
     <!-- 모달 끝 -->
-
-    <!-- 로그인 시작 -->
-    <div id="login">
-      <div id="login_container">
-        <div id="login_header">
-          <h1>login</h1>
-        </div>
-        <hr>
-        <div id="login_body">
-          아이디<input type="text">
-        </div>
-        <a href="#"><button id="login_close">닫기</button></a>
-      </div>
-    </div>
-    <!-- 로그인 끝 -->
   </main>
   <!-- 푸터 시작 -->
   <?php include("./component/footer.php")?>
