@@ -33,6 +33,9 @@ switch ($resource[1]) {
     case 'overlap':
         $pages = './api/overlap.php';
         break;
+    case 'logout':
+        $pages = './pages/logout.php';
+        break;
     default:
         echo "어딜 들어와 시발롬아 뒤질라고";
         break;
