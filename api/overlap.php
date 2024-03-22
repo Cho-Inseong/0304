@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_name = $_POST["user_name"];
-    $sql = "SELECT * FROM users WHERE user_name = :user_name";
+    $username = $_POST["username"];
+    $sql = "SELECT * FROM users WHERE username = :username";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":user_name", $user_name);
+    $stmt->bindParam(":username", $username);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

@@ -1,5 +1,4 @@
 <?php
-session_start();
 $_SESSION['captcha'] = '1q3eh';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -9,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $captcha = $_POST["captcha"];
     if ($captcha === $_SESSION['captcha']) {
         try{
-            $sql = "INSERT INTO users (user_name, name, password) VALUES (?,?,?)";
+            $sql = "INSERT INTO users (username, name, password) VALUES (?,?,?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$username, $name, $password]);
             echo "<script>alert('회원가입이 성공적으로 마무리 되었다')</script>";
