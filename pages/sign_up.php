@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">아이디</span>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="username">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">아이디 중복 검사</button>
+                <input id="overlaptest" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="username">
+                <button onclick="overlap()" class="btn btn-outline-secondary" type="button" id="button-addon1">아이디 중복 검사</button>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">이름</span>
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="input-group-text" id="addon-wrapping">비밀번호</span>
                 <input type="password" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="password">
             </div>
-            <button type="submit" class="btn btn-primary">회원가입하기요요요요요용요</button>
+            <button id="disabledbutton" type="submit" class="btn btn-primary" >회원가입하기요요요요요용요</button>
         </form>
     </main>
     <?php include("./component/footer.php") ?>

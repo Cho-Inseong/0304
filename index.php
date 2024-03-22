@@ -26,6 +26,9 @@ switch ($resource[1]) {
     case 'sign_up':
         $pages = './pages/sign_up.php';
         break;
+    case 'overlap':
+        $pages = './api/overlap.php';
+        break;
     default:
         echo "어딜 들어와 시발롬아 뒤질라고";
         break;
