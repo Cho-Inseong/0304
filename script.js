@@ -299,16 +299,17 @@ async function fetchVisitor() {
   // 아이디 중복검사
   function overlap() {
     const targetbutton = document.querySelector("#disabledbutton");
-    const user_name = document.querySelector("#overlaptest");
-    const user_name_value = user_name.value
+    const username = document.querySelector("#overlaptest");
+    const username_value = username.value
     $.post("./overlap", {
-      user_name:user_name_value
+      username:username_value
     }).done(function (data) {
     if (data == "이 아이디는 사용 가능합니다.") {
       alert(data);
     } else {
-      targetbutton.innerHTML='<button id=disabledbutton" type="submit" class="btn btn-primary" disabled >회원가입하기요요요요요용요</button>'
       alert(data)
     }
     })
   }
+
+  //한글 정규표현식
