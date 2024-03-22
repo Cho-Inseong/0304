@@ -1,17 +1,25 @@
 <?php
+session_start();
+$_SESSION['captcha'] = '1q3eh';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $name = $_POST["name"];
     $password = $_POST["password"];
-
-    try{
-        $sql = "INSERT INTO users (user_name, name, password) VALUES (?,?,?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$username, $name, $password]);
-        echo "<script>alert('회원가입이 성공적으로 마무리 되었다')</script>";
-        header("Location: /");
-    } catch (PDOException $e) {
-        echo $e->getMessage();
+    $captcha = $_POST["captcha"];
+    if ($captcha === $_SESSION['captcha']) {
+        try{
+            $sql = "INSERT INTO users (user_name, name, password) VALUES (?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$username, $name, $password]);
+            echo "<script>alert('회원가입이 성공적으로 마무리 되었다')\
+            </script>";
+            header("Location: /");
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    } else {
+        echo "<script>alert('캡챠 인증번호가 틀렸습니다.')</script>";
     }
 }
 ?>
@@ -41,7 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="input-group-text" id="addon-wrapping">비밀번호</span>
                 <input type="password" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="password">
             </div>
-            <button id="disabledbutton" type="submit" class="btn btn-primary" >회원가입하기요요요요요용요</button>
+            <div class="input-group mb-3 capcha">
+                <img src="../captcha.png" alt="" style="width: 100px; margin-top: 10px; margin-bottom:10px" >
+                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="captcha" maxlength="5">
+                <span class="input-group-text" id="addon-wrapping">캡챠입력</span>
+            </div>
+            <button id="disabledbutton" type="submit" class="btn btn-primary">회원가입</button>
         </form>
     </main>
     <?php include("./component/footer.php") ?>
