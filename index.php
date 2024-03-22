@@ -1,5 +1,6 @@
 <?php
 include("./config/dbconnect.php");
+session_start();
 
 $request = $_SERVER['REQUEST_URI'];
 $path = explode("?", $request);
