@@ -9,7 +9,7 @@
               <li class="headerli"><a href="goods">goods</a></li>
             </ul>
             <ul class="login_ul">
-              <li class="headerli"><a href="#">로그인</a></li>
+              <li class="headerli"><a href="sign_in">로그인</a></li>
               <li class="headerli"><a href="sign_up">회원가입</a></li>
             </ul>
           </div>

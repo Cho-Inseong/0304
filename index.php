@@ -26,6 +26,9 @@ switch ($resource[1]) {
     case 'sign_up':
         $pages = './pages/sign_up.php';
         break;
+    case 'sign_in':
+        $pages = './pages/sign_in.php';
+        break;
     case 'overlap':
         $pages = './api/overlap.php';
         break;
