@@ -12,8 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO users (user_name, name, password) VALUES (?,?,?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$username, $name, $password]);
-            echo "<script>alert('회원가입이 성공적으로 마무리 되었다')\
-            </script>";
+            echo "<script>alert('회원가입이 성공적으로 마무리 되었다')</script>";
             header("Location: /");
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -43,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">이름</span>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="name">
+                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="name" oninput="regexonlyko(this)">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">비밀번호</span>
