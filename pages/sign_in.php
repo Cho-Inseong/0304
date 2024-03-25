@@ -1,13 +1,12 @@
 <?php
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $mb_level = $_POST['mb_level'];
 
-    $sql = "SELECT user_idx, password, mb_level FROM users WHERE username = :username";
+    $sql = "SELECT user_idx, password, mb_level, login_date FROM users WHERE username = :username";
     $stmt = $pdo->prepare($sql);
-    $stmt -> bindParam(":username", $username);
+    $stmt-> bindParam(":username", $username);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -15,7 +14,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user['mb_level'] == $mb_level){
             $_SESSION['user_idx'] = $user['user_idx'];
             $_SESSION['mb_level'] = $user['mb_level'];
-            header("Location: /");
+            $time = date("Y-m-d H:i:s");
+            $sql2 = "UPDATE users SET login_date = '$time' WHERE username = '" . $username . "'";
+            $stmt2 = $pdo->prepare($sql2);
+            $stmt2->execute();
+            $stmt2->fetch(PDO::FETCH_ASSOC);
+            $userdate = $user['login_date'];
+            // header("Location: /");
+            // echo "<script>console.log(' . $user['login_date'] . '</script>";
+            echo "<script>
+                alert('이전 로그인 일자: $userdate');
+                location.href = '/';
+             </script>";
             exit;
         }else {
             echo "<script>alert('회원구분, 아이디 또는 비밀번호를 확인해주세요.')</script>";
