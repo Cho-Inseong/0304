@@ -36,16 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">아이디</span>
-                <input id="overlaptest" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="username">
+                <input id="overlaptest" oninput="idAndPwRegex(this)" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="username">
                 <button onclick="overlap()" class="btn btn-outline-secondary" type="button" id="button-addon1">아이디 중복 검사</button>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">이름</span>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="name" oninput="regexonlyko(this)">
+                <input type="text"  class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="name" oninput="nameRegex(this)">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="addon-wrapping">비밀번호</span>
-                <input type="password" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="password">
+                <input type="password" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" name="password" oninput="idAndPwRegex(this)">
             </div>
             <div class="input-group mb-3 capcha">
                 <img src="../captcha.png" alt="" style="width: 100px; margin-top: 10px; margin-bottom:10px" >
