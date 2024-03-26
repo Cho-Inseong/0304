@@ -11,7 +11,9 @@
             <ul class="login_ul">
               <?php
                 if (isset($_SESSION['user_idx'])) {
-                  echo "<li class='headerli'><a href='logout'>로그아웃</a></li>";
+                  echo "<li class='headerli'><a href='logout'>로그아웃</a></li>
+                  <li class='headerli'><a href='mypage'>마이페이지</a></li>
+                  ";
                   // $user_name = $_SESSION['user_idx'];
                   echo $_SESSION['user_idx'];
                 } else {
