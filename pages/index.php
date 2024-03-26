@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>baseball</title>
+  <title>skillsbaseball</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -56,7 +56,7 @@
         <br>
         Skills baseball park<br>
         <br>
-        <a href="./sub01.html">information 바로가기</a>
+        <a href="./information">information 바로가기</a>
       </p>
     </div>
     <!-- 인포메이션 영역 끝 -->
