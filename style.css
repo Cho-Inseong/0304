@@ -675,3 +675,50 @@ footer span {
 }
 
 /* 회원가입 끝 */
+
+/* 마이페이지 시작 */
+#containermypage {
+    width: 1320px;
+    padding-top: 100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#myreser, #myreser tr, #myreser th, #myreser td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+#myreser th {
+    background-color: #7a7a85;
+    padding: 10px 25px 10px 25px
+}
+
+#myreser td{
+    padding: 10px;
+}
+
+#myreser{
+    justify-content: center;
+}
+
+#td_red {
+    background-color: rgb(242, 100, 100);
+}
+
+#td_blue {
+    background-color: rgb(98, 111, 246);
+}
+
+#td_green {
+    background-color: rgb(97, 244, 183);
+}
+
+#deletedbutton{
+    margin-right: 1195px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+/* 마이페이지 끝 */

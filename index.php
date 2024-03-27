@@ -30,15 +30,23 @@ switch ($resource[1]) {
     case 'sign_in':
         $pages = './pages/sign_in.php';
         break;
+    case 'logout':
+        $pages = './pages/logout.php';
+        break;
+    case 'mypage':
+        $pages = './pages/mypage.php';
+        break;
     case 'overlap':
         $pages = './api/overlap.php';
         break;
-    case 'logout':
-        $pages = './pages/logout.php';
+    case 'managertmddls':
+        $pages = './api/managertmddls.php';
+        break;
+    case 'reservation1':
+        $pages = './api/reservation.php';
         break;
     default:
         echo "어딜 들어와 시발롬아 뒤질라고";
         break;
 }
 include($pages);
-?>
