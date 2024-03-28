@@ -12,8 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./[2024 지방기능경기대회] 웹 디자인 및 개발 선수제공파일/bootstrap-5.2.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <main id="containermypage">
         <?php
         if ($_SESSION['mb_level'] == "admin") {
-            echo "안녕하세요 관리자 입니다.";
+            include("./pages/mypageadmin.php");
         } else if ($_SESSION['mb_level'] == "common") {
             echo "안녕하세요 일반 회원입니다.";
         } else {

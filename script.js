@@ -360,58 +360,62 @@ function overlap() {
 //한글 정규표현식
 const idAndPwRegex = (target) => {
   target.value = target.value.replace(/[^a-zA-Z0-9]/g, "");
-}
+};
 
 const nameRegex = (target) => {
   target.value = target.value.replace(/[^가-힣-ㄱ-ㅎ]+$/g, "");
-}
-
+};
 
 //예약
-// let selectleague = "";
+
 let date = "";
 let price;
-// let selectleaguetime = "";
-// let min_people = "";
 
 function reservation(elem) {
-  date = `2024-04-${elem.innerText}`;
-  document.querySelector("#exampleModalLabel").innerHTML = `날짜: ${date}`;
-  const modal_body = document.querySelector("#modal-body")
-  modal_body.innerHTML = ""
-  $("#exampleModal").modal("show");
-  if ($("#exampleModal").modal("show")) {
-    modal_body.innerHTML += `
-    <div class='modal-body' id='modal-body'>
-    <span>리그선택</span>
-    <select name="league" id="league" onchange="leagueval();">
-    <option value="">--리그를 선택해주세요--</option>
-    <option value="night">나이트리그</option>
-    <option value="week">주말리그</option>
-    <option value="dawn">새벽리그</option>
-    </select>
-    <br>
-    <span>경기 선택</span>
-    <select name="" id="time" onchange="selecttime()">
-    <option value="sadf">--리그를 선택해주세요--</option>
-    </select>
-    <br>
-    <span>인원선택</span>
-    <input type="number" id="people" min="20" value="20" oninput="updateprice();">
-    <br>
-    <span id="price">가격:</span>
-    </div>`
-  }
-  
+   date = `2024-04-${elem.innerText}`;
+  $.post("./reservation1", {
+    command: "alldaterjawmd",
+    date: date,
+  }).done((data) => {
+    if(data == "전체 지정 없음") {
+      document.querySelector("#exampleModalLabel").innerHTML = `날짜: ${date}`;
+      const modal_body = document.querySelector("#modal-body");
+      $("#exampleModal").modal("show");
+      modal_body.innerHTML = "";
+      if ($("#exampleModal").modal("show")) {
+        modal_body.innerHTML += `
+        <div class='modal-body' id='modal-body'>
+        <span>리그선택</span>
+        <select name="league" id="league" onchange="leagueval();">
+        <option value="">--리그를 선택해주세요--</option>
+        <option value="night">나이트리그</option>
+        <option value="week">주말리그</option>
+        <option value="dawn">새벽리그</option>
+        </select>
+        <br>
+        <span>경기 선택</span>
+        <select name="" id="time" onchange="selecttime()">
+        <option value="sadf">--리그를 선택해주세요--</option>
+        </select>
+        <br>
+        <span>인원선택</span>
+        <input type="number" id="people" min="20" value="20" oninput="updateprice();">
+        <br>
+        <span id="price">가격:</span>
+        </div>`;
+      }
+    }else if(data == "예약불가능"){
+      alert("해당 날짜는 휴일로 지정되었습니다.");
+    };
+  })
 }
-
 
 // 경기 시간 띄우기
 function leagueval() {
   const selectedIndex = document.querySelector("#league").selectedIndex;
   const selecttime = document.querySelector("#time");
   selecttime.innerHTML = "<select name='' id='time'></select>";
-  
+
   if (selectedIndex == 1) {
     selecttime.add(new Option("19시", "19"));
     selecttime.add(new Option("23시", "23"));
@@ -423,52 +427,40 @@ function leagueval() {
     selecttime.add(new Option("04시", "04"));
     selecttime.add(new Option("07시", "07"));
   }
-  
+
   // if (document.querySelector("#people").value <= 20) {
-    //   alert("20명 이하는 예약할 수 없습니다.");
-    // }
-  }
-  // 가격 계산하기
-  function updateprice() {
-    const selectElement = document.querySelector("#league").selectedIndex;
-    const people = document.querySelector("#people").value;
-    switch (selectElement) {
-      case 1:
-        price = 50000;
-        break;
-        case 2:
-          price = 100000;
+  //   alert("20명 이하는 예약할 수 없습니다.");
+  // }
+}
+// 가격 계산하기
+function updateprice() {
+  const selectElement = document.querySelector("#league").selectedIndex;
+  const people = document.querySelector("#people").value;
+  switch (selectElement) {
+    case 1:
+      price = 50000;
       break;
-      case 3:
-        price = 30000;
-        break;
-        default:
-          break;
+    case 2:
+      price = 100000;
+      break;
+    case 3:
+      price = 30000;
+      break;
+    default:
+      break;
   }
   price += (people - 20) * 1000;
-  document.querySelector("#price").innerText = `가격: ${price.toLocaleString()}원`;
+  document.querySelector(
+    "#price"
+  ).innerText = `가격: ${price.toLocaleString()}원`;
 }
 
-// function selecttime() {
-//   const selecttime = document.querySelector("#time");
-//   const selectedIndex = selecttime.selectedIndex;
-//   const selecttimeval = selecttime.options[selectedIndex].value;
-  
-// }
-
 function reservationSubmit() {
-  // e()함수에 pric✅username과 name은 이미 세션에 저장되있는 user_idx를 가지고 와서 sql문으로 가져오고
-  // ✅1.리그: 그냥 select의 벨류값을 가지고 오면 될거같음
-  // ✅2.날짜: reservation()함수에 있긴한데 저걸 어케 date타입으로 만들지...
-  // ✅3.시간: 이것도 select의 벨류값을 가지고 오면 될거같음
-  // ✅4.최소인원: updateprice()함수에 people변수를 밖으로 빼고 넘기기
-  // ✅5.사용료: updateprice변수를 밖으로 빼고 price를 넘기면 되듯
-  
   const selectleague = document.querySelector("#league");
   const selectedIndex = selectleague.selectedIndex;
   const selectleagueval = selectleague.options[selectedIndex].value; //리그 벨류값
-  
-  const resdate = date //예약날짜
+
+  const resdate = date; //예약날짜
 
   const selecttime = document.querySelector("#time");
   const selectedtimeIndex = selecttime.selectedIndex;
@@ -478,31 +470,37 @@ function reservationSubmit() {
 
   const resfee = price; //사용료
 
-  // console.log(selectleagueval);
-  // console.log(resdate);
-  // console.log(selecttimeval);
-  // console.log(people);
-  // console.log(resfee);
-
-  $.post("./reservation1", {
-    res_league: selectleagueval,
-    res_date: resdate,
-    res_time: selecttimeval,
-    min_people: people,
-    fee: resfee
-  }).done(function (data) {
-    if (data == "정상적으로 등록되었습니다.") {
-      alert(data);
+  $.post("", {
+    command: "holidaydaytimerjawmd",
+    league: selectleagueval,
+    date: resdate,
+    time: selecttimeval,
+  }).done((data)=>{
+    if(data == "예약가능"){
+      $.post("./reservation1", {
+        command: "yaeyak",
+        res_league: selectleagueval,
+        res_date: resdate,
+        res_time: selecttimeval,
+        min_people: people,
+        fee: resfee,
+      }).done(function (data) {
+        if (data == "정상적으로 등록되었습니다.") {
+          alert(data);
+          $("#exampleModal").modal("hide");
+          // location.href = "./";
+        } else if (data == "로그인하세요 시발롬씨") {
+          alert(data);
+          location.href = "login";
+        } else {
+          alert(data);
+        }
+      });
+    }else{
+      alert("해당 날짜는 휴일로 지정되었습니다.");
       $("#exampleModal").modal("hide");
-        // location.href = "./";
-    } else if(data == "로그인하세요 시발롬씨") {
-      alert(data);
-      location.href = 'login';
-    } else {
-      alert(data);
     }
   })
-
 }
 
 // 관리자 마이페이지 승인버튼
@@ -513,14 +511,14 @@ function managertmddls(elem) {
     command: "tmddls",
     res_idx: res_idx,
   }).done(function (data) {
-    if(data == "정상적으로 승인 되었습니다.") {
+    if (data == "정상적으로 승인 되었습니다.") {
       alert(data);
-      location.href = 'mypage';
-    }else {
+      location.href = "mypage";
+    } else {
       alert(data);
-      location.href = 'mypage';
+      location.href = "mypage";
     }
-  })
+  });
 }
 
 function managerdeleted(elem) {
@@ -529,52 +527,132 @@ function managerdeleted(elem) {
     command: "deleted",
     res_idx: res_idx,
   }).done(function (data) {
-    if(data == "정상적으로 삭제 되었습니다.") {
+    if (data == "정상적으로 삭제 되었습니다.") {
       alert(data);
-      location.href = 'mypage';
-    }else {
+      location.href = "mypage";
+    } else {
       alert(data);
-      location.href = 'mypage';
+      location.href = "mypage";
     }
-  })
+  });
 }
 
 function maybeallcheckdeleted() {
   const checkbox = document.querySelectorAll("#deletedcheckbox");
   checkbox.forEach((elem) => {
-    const reservation_av_parent_child = elem.parentElement.parentElement.querySelector("td:nth-child(9)").innerText;
+    const reservation_av_parent_child =
+      elem.parentElement.parentElement.querySelector(
+        "td:nth-child(9)"
+      ).innerText;
     const res_idx = elem.parentElement.parentElement.className;
-    if(elem.checked == true) {
-      if(reservation_av_parent_child == "승인불가"){
+    if (elem.checked == true) {
+      if (reservation_av_parent_child == "승인불가") {
         console.log("일단");
         $.post("./managertmddls", {
           command: "deleted",
           res_idx: res_idx,
         }).done(function (data) {
-          if(data == "정상적으로 삭제 되었습니다.") {
+          if (data == "정상적으로 삭제 되었습니다.") {
             alert(data);
-            location.href = 'mypage';
-          }else {
+            location.href = "mypage";
+          } else {
             alert(data);
-            location.href = 'mypage';
+            location.href = "mypage";
           }
-        })
-      }else {
+        });
+      } else {
         console.log("가마있으세요");
       }
     }
-  });  
+  });
 }
 
+//휴일 지정
 
+let date2;
 
-//체크박스 부모님 찾고 부모님의 부모님을 찾아서 그 부모님의 예약가능여부가 번째 자식인지 찾아라 
-//태그안에 내용을 가져오려면 innerText를 사용하면 됩니다.
+function holidaydesignation(elem) {
+  date2 = `2024-04-${elem.innerText}`;
+  document.querySelector(
+    "#exampleModalLabel"
+  ).innerHTML = `<span>날짜: ${date2}</span> <button type="button" class="btn btn-primary ${date2}" id='alldate' onclick="alldateSubmit()" >${date2} 전체 지정</button>`;
+  const modal_body = document.querySelector("#modal-body");
+  modal_body.innerHTML = "";
+  $("#exampleModal").modal("show");
+  if ($("#exampleModal").modal("show")) {
+    modal_body.innerHTML += `
+    <div class='modal-body' id='modal-body'>
+    <span>리그선택</span>
+    <select name="league" id="league2" onchange="leagueval2();">
+    <option value="">--리그를 선택해주세요--</option>
+    <option value="night">나이트리그</option>
+    <option value="week">주말리그</option>
+    <option value="dawn">새벽리그</option>
+    </select>
+    <br><br><br>
+    <span>경기 선택</span>
+    <select name="" id="time2" onchange="selecttime()">
+    <option value="sadf">--리그를 선택해주세요--</option>
+    </select>
+    </div>`;
+  }
+}
 
-//정리
-//체크박스의 부모를 찾고 그 부모의 부모를 찾아서 그 부모의 몇 번쨰 자식이 예약가능여부인지 찾아서 예약가능여부의 <td>의 내용을 가지고와서
-//승인불가면 삭제가 가능하고 예약가능,승인완료는 삭제가 불가능하다.
+function leagueval2() {
+  const selectedIndex = document.querySelector("#league2").selectedIndex;
+  const selecttime = document.querySelector("#time2");
+  selecttime.innerHTML = "<select name='' id='time2'></select>";
 
+  if (selectedIndex == 1) {
+    selecttime.add(new Option("19시", "19"));
+    selecttime.add(new Option("23시", "23"));
+  } else if (selectedIndex == 2) {
+    selecttime.add(new Option("09시", "09"));
+    selecttime.add(new Option("13시", "13"));
+    selecttime.add(new Option("15시", "15"));
+  } else if (selectedIndex == 3) {
+    selecttime.add(new Option("04시", "04"));
+    selecttime.add(new Option("07시", "07"));
+  }
+}
 
-//기능구현
-//전체삭제 버튼을 눌렀을때 체크박스가 ture면 체크박스의 부모의부모를 찾고 그 부모의 자식중에 예약가능여부를 찾는다 그리고 예약가능여부에서 승인불가만 삭제하는 로직을 구현
+function holidaySubmit() {
+  const selectleague = document.querySelector("#league2");
+  const selectedIndex = selectleague.selectedIndex;
+  const selectleagueval = selectleague.options[selectedIndex].value; //리그 벨류값
+
+  const resdate = date2; //예약날짜
+
+  const selecttime = document.querySelector("#time2");
+  const selectedtimeIndex = selecttime.selectedIndex;
+  const selecttimeval = selecttime.options[selectedtimeIndex].value; //시간 벨류값
+
+  $.post("./holidaydesignation", {
+    league: selectleagueval,
+    date: resdate,
+    time: selecttimeval,
+    command: "designation"
+  }).done(function (data) {
+    if (data == "휴일이 정상적으로 등록되었습니다.") {
+      alert(data);
+      $("#exampleModal").modal("hide");
+    } else {
+      alert(data);
+    }
+  });
+}
+
+function alldateSubmit() {
+  const alldatedate = document.querySelector("#alldate").classList[2];
+  $.post("./holidaydesignation", {
+    command: "alldesignation",
+    date: alldatedate
+  }).done(function (data) {
+    if (data == "전체요일이 정상적으로 등록되었습니다."){
+      alert(data);
+      $("#exampleModal").modal("hide");
+    } else {
+      alert(data);
+    }
+  })
+}

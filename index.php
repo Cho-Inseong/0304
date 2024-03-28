@@ -36,6 +36,9 @@ switch ($resource[1]) {
     case 'mypage':
         $pages = './pages/mypage.php';
         break;
+    case 'holiday':
+        $pages = './pages/holiday.php';
+        break;
     case 'overlap':
         $pages = './api/overlap.php';
         break;
@@ -44,6 +47,9 @@ switch ($resource[1]) {
         break;
     case 'reservation1':
         $pages = './api/reservation.php';
+        break;
+    case 'holidaydesignation':
+        $pages = './api/holidaydesignation.php';
         break;
     default:
         echo "어딜 들어와 시발롬아 뒤질라고";
